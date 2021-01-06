@@ -1,0 +1,34 @@
+﻿@using PasajesCurso.Models
+@model List<SucursalCLS>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado Sucursales</h2>
+
+@Html.ActionLink("Agregar", "Agregar", "Sucursal", null, new { @class="btn btn-primary"})
+<br />
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td>@Html.LabelFor(p=>Model[0].iidSucursal)</td>
+            <td>@Html.LabelFor(p=>Model[1].nombre)</td>
+            <td>@Html.LabelFor(p=>Model[2].telefono)</td>
+            <td>@Html.LabelFor(p=>Model[3].email)</td>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.iidSucursal</td>
+                <td>@item.nombre</td>
+                <td>@item.telefono</td>
+                <td>@item.email</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

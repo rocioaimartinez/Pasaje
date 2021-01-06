@@ -1,0 +1,32 @@
+﻿@using PasajesCurso.Models
+@model List<MarcaCLS>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Marca</h2>
+
+@Html.ActionLink("Agregar", "Agregar", "Marca", null, new { @class="btn btn-primary"})
+<p></p>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td with="10%">@Html.LabelFor(p=>Model[0].iidMarca)</td>
+            <td with="20%">@Html.LabelFor(p=>Model[1].nombre)</td>
+            <td with="70%">@Html.LabelFor(p=>Model[2].descripcion)</td>
+        </tr>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.iidMarca</td>
+                    <td>@item.nombre</td>
+                    <td>@item.descripcion</td>
+                </tr>
+            }
+        </tbody>
+
+    </thead>
+
+
+</table>
