@@ -34,6 +34,7 @@ namespace PasajesCurso.Models
         [Display(Name = "Direccion")]
         [Required]
         [StringLength(100, ErrorMessage ="La direccion no puede superara los 100 caracteres")]
+        [DataType(DataType.MultilineText)]
         public string direccion { get; set; }
 
         [Display(Name = "Sexo")]

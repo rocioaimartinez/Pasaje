@@ -1,0 +1,29 @@
+﻿@using PasajesCurso.Models
+@model List<ViajeCLS>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Viajes</h2>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td>@Html.LabelFor(p=>Model[0].iidViaje)</td>
+            <td>@Html.LabelFor(p => Model[1].nombreOrigen)</td>
+            <td>@Html.LabelFor(p => Model[2].nombreDestino)</td>
+            <td>@Html.LabelFor(p => Model[3].nombreBus)</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.iidViaje</td>
+                <td>@item.nombreOrigen</td>
+                <td>@item.nombreDestino</td>
+                <td>@item.nombreBus</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

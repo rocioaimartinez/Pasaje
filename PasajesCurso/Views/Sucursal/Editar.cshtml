@@ -1,16 +1,19 @@
 ﻿@using PasajesCurso.Models
 @model SucursalCLS
 @{
-    ViewBag.Title = "Agregar";
-    
+    ViewBag.Title = "Editar";
 }
 
-<h2>Agregar Sucursal</h2>
-
+<h2>Editar Sucusal</h2>
 <div class="row">
     <div class="col-md-6">
-        @using (Html.BeginForm("Agregar", "Sucursal", FormMethod.Post))
+        @using (Html.BeginForm("Editar", "Sucursal", FormMethod.Post))
         {
+            <div>
+                @Html.LabelFor(p => p.iidSucursal)
+                @Html.TextBoxFor(p => p.iidSucursal, new { @class = "form-control", @readOnly = true })
+                @Html.ValidationMessage("iidSucursal", new { @class = "text-danger" })
+            </div>
             <div>
                 @Html.LabelFor(p => p.nombre)
                 @Html.TextBoxFor(p => p.nombre, new { @class = "form-control" })
@@ -33,12 +36,13 @@
             </div>
             <div>
                 @Html.LabelFor(p => p.fechaApertura)
-                @Html.EditorFor(p => p.fechaApertura, new { htmlAttributes=new { @class = "form-control" } })
+                @Html.EditorFor(p => p.fechaApertura, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessage("fechaApertura", new { @class = "text-danger" })
             </div>
             <br />
             <div style="margin:auto">
                 <input type="submit" class="btn btn-primary" value="Guardar" />
+                @Html.ActionLink("Cancel", "Index", "Sucursal", null, new { @class = "btn btn-primary" })
             </div>
         }
     </div>

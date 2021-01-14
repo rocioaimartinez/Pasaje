@@ -52,6 +52,21 @@ namespace PasajesCurso.Controllers
             }
             
         }
+        public ActionResult Editar(int id)
+        {
+            MarcaCLS oMarcaCLS = new MarcaCLS();
+            using (var bd = new BDPasajeEntities())
+            {
+                Marca oMarca=bd.Marca.Where(p => p.IIDMARCA.Equals(id)).First();
+                oMarcaCLS.iidMarca = oMarca.IIDMARCA;
+                oMarcaCLS.nombre = oMarca.NOMBRE;
+                oMarcaCLS.descripcion = oMarca.DESCRIPCION;
+                
+            }
+            return View(oMarcaCLS);
+        }
+        //[HttpPut]
+        //public ActionResult
     }
 
 }

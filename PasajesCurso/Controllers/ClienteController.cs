@@ -80,5 +80,25 @@ namespace PasajesCurso.Controllers
                 return RedirectToAction("Index");
             }
         }
+        public ActionResult Editar(int id)
+        {
+            ClienteCLS oClienteCLS= new ClienteCLS();
+            using (var bd = new BDPasajeEntities())
+            {
+                Cliente oCliente = bd.Cliente.Where(p => p.IIDCLIENTE.Equals(id)).First();
+                oClienteCLS.iidCliente= oCliente.IIDCLIENTE;
+                oClienteCLS.nombre= oCliente.NOMBRE;
+                oClienteCLS.apPaterno= oCliente.APPATERNO;
+                oClienteCLS.apMaterno= oCliente.APMATERNO;
+                oClienteCLS.email= oCliente.EMAIL;
+                oClienteCLS.direccion= oCliente.DIRECCION;
+                //oClienteCLS.iidSexo= oCliente.IIDSEXO;
+                oClienteCLS.telefonoCelular= oCliente.TELEFONOCELULAR;
+                oClienteCLS.telefonoFijo= oCliente.TELEFONOFIJO;
+                
+
+            }
+            return View(oClienteCLS);
+        }
     }
 }
